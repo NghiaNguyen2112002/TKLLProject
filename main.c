@@ -43,10 +43,10 @@ void main(void) {
         AddFloorBuffer();
         RemoveCurrenFloorBuffer();
 
-        fsm_elevatorState();
         
         DisplayState();           
         Display(floorX);
+        //fsm_elevatorState();
 
         if(flag_timer0){
             flag_timer0 = 0;
@@ -73,7 +73,7 @@ void InitSystem(void){
     
     init_interrupt();
     init_timer0(4695);      //1ms
-    init_timer1(9390);      //dinh thoi 2ms
+    //init_timer1(9390);      //dinh thoi 2ms
     
     Display(floorX);
     SetTimer0_ms(500);      //0.5s

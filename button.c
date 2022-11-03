@@ -24,7 +24,7 @@ void scan_key_matrix()
 				key_code[i*MAX_COL+j] = 1;
             }
 			else
-				key_code[i*MAX_ROW+j] = 0;   
+				key_code[i*MAX_COL+j] = 0;   
 		}
 	}
 }

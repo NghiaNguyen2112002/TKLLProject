@@ -20,6 +20,5 @@ void CloseOutput(int index)
 	if (index >= 0 && index <= 7)
 	{
 		PORT_LED = PORT_LED & ~arrayMapOfOutput[index];
-                // ~0b00000100 = 0b11111011
 	}
 }
