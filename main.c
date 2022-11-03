@@ -35,8 +35,7 @@ void fsm_elevatorState(void);
 
 void main(void) {
     InitSystem();
-//      DisplayState();   
-
+    
     while(1){
         scan_key_matrix();
         AddFloorBuffer();
@@ -52,12 +51,15 @@ void main(void) {
             ElevatorOperating();
 
             if(floor_buffer[floorX]) {
+                PORTAbits.RA0 = 1;
+                Delay_ms(100);
+                PORTAbits.RA0 = 0;
                 SetTimer0_ms(2000);
             }
-            else SetTimer0_ms(500);
-             
+            else {
+                SetTimer0_ms(500);
+            }
         }
-        Delay_ms(50);
     }
     return;
 }
@@ -65,9 +67,12 @@ void main(void) {
 void InitSystem(void){
     floorX = 0;
     state = IDLE;
+    
+    //BUZZER
+    TRISAbits.RA0 = 0;
+    PORTAbits.RA0 = 0;
+    
     InitLed();
-  
- 
     InitLed7Seg();
     init_key_matrix();
     init_interrupt();
@@ -173,7 +178,7 @@ void DisplayState(void){
         CloseOutput(6);
     }
     else{
-        OpenOutput(6);
-        OpenOutput(7);
+        CloseOutput(6);
+        CloseOutput(7);
     }
 }
