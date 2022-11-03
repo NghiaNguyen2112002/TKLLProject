@@ -35,30 +35,30 @@ void fsm_elevatorState(void);
 
 void main(void) {
     InitSystem();
-    
+        state = IDLE;
+
     while(1){
-        
-        
+            state = IDLE;
+
         scan_key_matrix();
-        AddFloorBuffer();
-        RemoveCurrenFloorBuffer();
-
-        
-        DisplayState();           
-        Display(floorX);
-        //fsm_elevatorState();
-
-        if(flag_timer0){
-            flag_timer0 = 0;
-
-            ElevatorOperating();
-
-            if(floor_buffer[floorX]) {
-                SetTimer0_ms(2000);
-            }
-            else SetTimer0_ms(500);
+//        AddFloorBuffer();
+//        RemoveCurrenFloorBuffer();
              
-        }
+        DisplayState();           
+//        Display(floorX);
+//        fsm_elevatorState();
+
+//        if(flag_timer0){
+//            flag_timer0 = 0;
+//
+//            ElevatorOperating();
+//
+//            if(floor_buffer[floorX]) {
+//                SetTimer0_ms(2000);
+//            }
+//            else SetTimer0_ms(500);
+//             
+//        }
         Delay_ms(50);
     }
     return;
@@ -67,14 +67,17 @@ void main(void) {
 void InitSystem(void){
     floorX = 0;
     state = IDLE;
-    init_key_matrix();
+    
+    TRISA =  0x00;
+    PORTA = 0x00;
     InitLed();
     InitLed7Seg();
-    
+    init_key_matrix();
     init_interrupt();
-    init_timer0(4695);      //1ms
-    //init_timer1(9390);      //dinh thoi 2ms
     
+    init_timer0(4695);      //1ms
+//    //init_timer1(9390);      //dinh thoi 2ms
+//    
     Display(floorX);
     SetTimer0_ms(500);      //0.5s
 }
@@ -164,15 +167,19 @@ void DisplayFloorDemanded(char floor){
 }
 void DisplayState(void){
     if(floorX == UP){
+        PORTA = 0x0F;
         OpenOutput(6);
         CloseOutput(7);
     }
     else if(floorX == DOWN){
+        PORTA = 0xF0;
+
         OpenOutput(7);
         CloseOutput(6);
     }
     else {
-        CloseOutput(6);
-        CloseOutput(7);
+        PORTA = 0x00;
+        OpenOutput(6);
+        OpenOutput(7);
     }
 }

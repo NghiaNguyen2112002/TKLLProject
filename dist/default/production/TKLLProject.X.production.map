@@ -1,5 +1,5 @@
 MPLINK 5.00, LINKER
-Linker Map File - Created Thu Nov 03 10:33:16 2022
+Linker Map File - Created Thu Nov 03 10:47:59 2022
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -21,27 +21,27 @@ Linker Map File - Created Thu Nov 03 10:33:16 2022
      .idata_interrupt.o_i    romdata   0x000014    program   0x000004
        InterruptVectorLow       code   0x000018    program   0x000006
                    .cinit    romdata   0x00001e    program   0x00004a
-             .code_main.o       code   0x000068    program   0x00032c
-            .code_timer.o       code   0x000394    program   0x00017e
-        .code_interrupt.o       code   0x000512    program   0x00012c
-           .code_button.o       code   0x00063e    program   0x0000e8
-                     PROG       code   0x000726    program   0x0000a6
-               _cinit_scn       code   0x0007cc    program   0x00009e
-              .code_led.o       code   0x00086a    program   0x000084
-          .code_led7seg.o       code   0x0008ee    program   0x000040
-         .code_fxd2424u.o       code   0x00092e    program   0x00003a
-         .code_fxd1616u.o       code   0x000968    program   0x00002c
-                    .code       code   0x000994    program   0x000020
-             _startup_scn       code   0x0009b4    program   0x00001c
-         .idata_timer.o_i    romdata   0x0009d0    program   0x00000e
-       .idata_led7seg.o_i    romdata   0x0009de    program   0x00000a
-           .idata_led.o_i    romdata   0x0009e8    program   0x000008
-      .idata_fxd1616u.o_i    romdata   0x0009f0    program   0x000000
-      .idata_fxd2424u.o_i    romdata   0x0009f0    program   0x000000
-         .idata_c018i.o_i    romdata   0x0009f0    program   0x000000
-        .idata_button.o_i    romdata   0x0009f0    program   0x000011
-        .idata___init.o_i    romdata   0x000a01    program   0x000000
-            .code_c018i.o       code   0x000a02    program   0x000000
+             .code_main.o       code   0x000068    program   0x0002fe
+            .code_timer.o       code   0x000366    program   0x00017e
+        .code_interrupt.o       code   0x0004e4    program   0x00012c
+           .code_button.o       code   0x000610    program   0x0000e8
+                     PROG       code   0x0006f8    program   0x0000a6
+               _cinit_scn       code   0x00079e    program   0x00009e
+              .code_led.o       code   0x00083c    program   0x000084
+          .code_led7seg.o       code   0x0008c0    program   0x000040
+         .code_fxd2424u.o       code   0x000900    program   0x00003a
+         .code_fxd1616u.o       code   0x00093a    program   0x00002c
+                    .code       code   0x000966    program   0x000020
+             _startup_scn       code   0x000986    program   0x00001c
+         .idata_timer.o_i    romdata   0x0009a2    program   0x00000e
+       .idata_led7seg.o_i    romdata   0x0009b0    program   0x00000a
+           .idata_led.o_i    romdata   0x0009ba    program   0x000008
+      .idata_fxd1616u.o_i    romdata   0x0009c2    program   0x000000
+      .idata_fxd2424u.o_i    romdata   0x0009c2    program   0x000000
+         .idata_c018i.o_i    romdata   0x0009c2    program   0x000000
+        .idata_button.o_i    romdata   0x0009c2    program   0x000011
+        .idata___init.o_i    romdata   0x0009d3    program   0x000000
+            .code_c018i.o       code   0x0009d4    program   0x000000
     .config_300001_main.o    romdata   0x300001    program   0x000001
     .config_300002_main.o    romdata   0x300002    program   0x000001
     .config_300003_main.o    romdata   0x300003    program   0x000001
@@ -83,56 +83,56 @@ Linker Map File - Created Thu Nov 03 10:33:16 2022
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x000a00      
+                            0x000000    0x0009d2      
                             0x300001    0x300003      
                             0x300005    0x300006      
                             0x300008    0x30000d      
-            2572 out of 66584 program addresses used, program memory utilization is 3%
+            2526 out of 66584 program addresses used, program memory utilization is 3%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-           AddFloorBuffer   0x000172    program     extern E:\PIC\TKLLProject.X\main.c
-              CloseOutput   0x000892    program     extern E:\PIC\TKLLProject.X\led.c
-                   D1616S   0x000748    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                D1616SNEG   0x000756    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 D1616SOK   0x000752    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  D1616SX   0x000768    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                   D2424S   0x00079c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                D2424SNEG   0x0007aa    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                 D2424SOK   0x0007a6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                  D2424SX   0x0007c2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                  DA1616S   0x000738    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  DA2424S   0x000788    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                 Delay_ms   0x000102    program     extern E:\PIC\TKLLProject.X\main.c
-                  Display   0x0008f4    program     extern E:\PIC\TKLLProject.X\led7seg.c
-     DisplayFloorDemanded   0x000310    program     extern E:\PIC\TKLLProject.X\main.c
-             DisplayState   0x000330    program     extern E:\PIC\TKLLProject.X\main.c
-        ElevatorOperating   0x00028a    program     extern E:\PIC\TKLLProject.X\main.c
-                 FXD1616S   0x000726    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 FXD1616U   0x000968    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
-                 FXD2424S   0x000772    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                 FXD2424U   0x00092e    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424u.c
-                  InitLed   0x00086a    program     extern E:\PIC\TKLLProject.X\led.c
-              InitLed7Seg   0x0008ee    program     extern E:\PIC\TKLLProject.X\led7seg.c
-               InitSystem   0x0000be    program     extern E:\PIC\TKLLProject.X\main.c
+           AddFloorBuffer   0x00013c    program     extern E:\PIC\TKLLProject.X\main.c
+              CloseOutput   0x000864    program     extern E:\PIC\TKLLProject.X\led.c
+                   D1616S   0x00071a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                D1616SNEG   0x000728    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 D1616SOK   0x000724    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  D1616SX   0x00073a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                   D2424S   0x00076e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                D2424SNEG   0x00077c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                 D2424SOK   0x000778    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                  D2424SX   0x000794    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                  DA1616S   0x00070a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  DA2424S   0x00075a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                 Delay_ms   0x0000cc    program     extern E:\PIC\TKLLProject.X\main.c
+                  Display   0x0008c6    program     extern E:\PIC\TKLLProject.X\led7seg.c
+     DisplayFloorDemanded   0x0002da    program     extern E:\PIC\TKLLProject.X\main.c
+             DisplayState   0x0002fa    program     extern E:\PIC\TKLLProject.X\main.c
+        ElevatorOperating   0x000254    program     extern E:\PIC\TKLLProject.X\main.c
+                 FXD1616S   0x0006f8    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 FXD1616U   0x00093a    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
+                 FXD2424S   0x000744    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                 FXD2424U   0x000900    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424u.c
+                  InitLed   0x00083c    program     extern E:\PIC\TKLLProject.X\led.c
+              InitLed7Seg   0x0008c0    program     extern E:\PIC\TKLLProject.X\led7seg.c
+               InitSystem   0x000084    program     extern E:\PIC\TKLLProject.X\main.c
       InterruptVectorHigh   0x000008    program     extern E:\PIC\TKLLProject.X\interrupt.c
        InterruptVectorLow   0x000018    program     extern E:\PIC\TKLLProject.X\interrupt.c
-      IsDownFloorDemanded   0x000248    program     extern E:\PIC\TKLLProject.X\main.c
-        IsUpFloorDemanded   0x000208    program     extern E:\PIC\TKLLProject.X\main.c
-               OpenOutput   0x000870    program     extern E:\PIC\TKLLProject.X\led.c
-  RemoveCurrenFloorBuffer   0x0001de    program     extern E:\PIC\TKLLProject.X\main.c
-             SetTimer0_ms   0x00042a    program     extern E:\PIC\TKLLProject.X\timer.c
-             SetTimer1_ms   0x000442    program     extern E:\PIC\TKLLProject.X\timer.c
+      IsDownFloorDemanded   0x000212    program     extern E:\PIC\TKLLProject.X\main.c
+        IsUpFloorDemanded   0x0001d2    program     extern E:\PIC\TKLLProject.X\main.c
+               OpenOutput   0x000842    program     extern E:\PIC\TKLLProject.X\led.c
+  RemoveCurrenFloorBuffer   0x0001a8    program     extern E:\PIC\TKLLProject.X\main.c
+             SetTimer0_ms   0x0003fc    program     extern E:\PIC\TKLLProject.X\timer.c
+             SetTimer1_ms   0x000414    program     extern E:\PIC\TKLLProject.X\timer.c
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00000   0x000966    program     static                          
-       ___return_lbl00000   0x000992    program     static                          
-       ___return_lbl00001   0x0009ce    program     static                          
+       ___return_lbl00000   0x000938    program     static                          
+       ___return_lbl00000   0x000964    program     static                          
+       ___return_lbl00001   0x0009a0    program     static                          
        ___return_lbl00001   0x00001c    program     static                          
        ___return_lbl00002   0x00000c    program     static                          
-       ___return_lbl00002   0x000868    program     static                          
+       ___return_lbl00002   0x00083a    program     static                          
                __config_0   0x300001    program     static E:\PIC\TKLLProject.X\main.c
                __config_1   0x300002    program     static E:\PIC\TKLLProject.X\main.c
               __config_10   0x30000d    program     static E:\PIC\TKLLProject.X\main.c
@@ -145,60 +145,61 @@ Linker Map File - Created Thu Nov 03 10:33:16 2022
                __config_8   0x30000b    program     static E:\PIC\TKLLProject.X\main.c
                __config_9   0x30000c    program     static E:\PIC\TKLLProject.X\main.c
                    __init   0x000006    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
-                   __pa_0   0x000474    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_0   0x0006f8    program     static E:\PIC\TKLLProject.X\button.c
-                   __pa_0   0x0005d2    program     static E:\PIC\TKLLProject.X\interrupt.c
-                   __pa_0   0x000378    program     static E:\PIC\TKLLProject.X\main.c
-                   __pa_0   0x0008b4    program     static E:\PIC\TKLLProject.X\led.c
-                   __pa_1   0x0004a0    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_1   0x0008ca    program     static E:\PIC\TKLLProject.X\led.c
-                   __pa_1   0x000382    program     static E:\PIC\TKLLProject.X\main.c
-                   __pa_1   0x0005fc    program     static E:\PIC\TKLLProject.X\interrupt.c
-                   __pa_2   0x0008de    program     static E:\PIC\TKLLProject.X\led.c
-                   __pa_2   0x000622    program     static E:\PIC\TKLLProject.X\interrupt.c
-                   __pa_2   0x00038c    program     static E:\PIC\TKLLProject.X\main.c
-                   __pa_2   0x0004a8    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_3   0x000630    program     static E:\PIC\TKLLProject.X\interrupt.c
-                   __pa_3   0x0004ba    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_4   0x0004cc    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_5   0x0004d6    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_6   0x0004de    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_7   0x0004ea    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_8   0x0004f6    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_9   0x000504    program     static E:\PIC\TKLLProject.X\timer.c
-            __zero_memory   0x000994    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
-                _do_cinit   0x0007cc    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                   __pa_0   0x000446    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_0   0x0006ca    program     static E:\PIC\TKLLProject.X\button.c
+                   __pa_0   0x000886    program     static E:\PIC\TKLLProject.X\led.c
+                   __pa_0   0x0005a4    program     static E:\PIC\TKLLProject.X\interrupt.c
+                   __pa_0   0x00033c    program     static E:\PIC\TKLLProject.X\main.c
+                   __pa_1   0x000472    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_1   0x00034a    program     static E:\PIC\TKLLProject.X\main.c
+                   __pa_1   0x0005ce    program     static E:\PIC\TKLLProject.X\interrupt.c
+                   __pa_1   0x00089c    program     static E:\PIC\TKLLProject.X\led.c
+                   __pa_2   0x0008b0    program     static E:\PIC\TKLLProject.X\led.c
+                   __pa_2   0x0005f4    program     static E:\PIC\TKLLProject.X\interrupt.c
+                   __pa_2   0x000354    program     static E:\PIC\TKLLProject.X\main.c
+                   __pa_2   0x00047a    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_3   0x00035c    program     static E:\PIC\TKLLProject.X\main.c
+                   __pa_3   0x000602    program     static E:\PIC\TKLLProject.X\interrupt.c
+                   __pa_3   0x00048c    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_4   0x00049e    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_5   0x0004a8    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_6   0x0004b0    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_7   0x0004bc    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_8   0x0004c8    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_9   0x0004d6    program     static E:\PIC\TKLLProject.X\timer.c
+            __zero_memory   0x000966    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
+                _do_cinit   0x00079e    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                   _false   0x000962    program     static                          
-                 _startup   0x0009b4    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                compare_l   0x0009aa    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
-                copy_loop   0x00083e    program     static                          
-            copy_one_byte   0x000844    program     static                          
-                     done   0x000868    program     static                          
-             done_copying   0x000852    program     static                          
-                  endloop   0x00098e    program     static                          
-        fsm_elevatorState   0x0002c2    program     extern E:\PIC\TKLLProject.X\main.c
-                 high_isr   0x000580    program     extern E:\PIC\TKLLProject.X\interrupt.c
-           init_interrupt   0x000512    program     extern E:\PIC\TKLLProject.X\interrupt.c
-          init_key_matrix   0x00063e    program     extern E:\PIC\TKLLProject.X\button.c
-              init_timer0   0x000394    program     extern E:\PIC\TKLLProject.X\timer.c
-              init_timer1   0x0003c0    program     extern E:\PIC\TKLLProject.X\timer.c
-                     loop   0x000972    program     static                          
-                     loop   0x0009c4    program     static                          
-                     loop   0x00093a    program     static                          
-                   loop_h   0x0009a2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
-                   loop_l   0x0009ac    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
-                  low_isr   0x00051a    program     extern E:\PIC\TKLLProject.X\interrupt.c
+                   _false   0x000934    program     static                          
+                 _startup   0x000986    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                compare_l   0x00097c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
+                copy_loop   0x000810    program     static                          
+            copy_one_byte   0x000816    program     static                          
+                     done   0x00083a    program     static                          
+             done_copying   0x000824    program     static                          
+                  endloop   0x000960    program     static                          
+        fsm_elevatorState   0x00028c    program     extern E:\PIC\TKLLProject.X\main.c
+                 high_isr   0x000552    program     extern E:\PIC\TKLLProject.X\interrupt.c
+           init_interrupt   0x0004e4    program     extern E:\PIC\TKLLProject.X\interrupt.c
+          init_key_matrix   0x000610    program     extern E:\PIC\TKLLProject.X\button.c
+              init_timer0   0x000366    program     extern E:\PIC\TKLLProject.X\timer.c
+              init_timer1   0x000392    program     extern E:\PIC\TKLLProject.X\timer.c
+                     loop   0x000944    program     static                          
+                     loop   0x00090c    program     static                          
+                     loop   0x000996    program     static                          
+                   loop_h   0x000974    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
+                   loop_l   0x00097e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
+                  low_isr   0x0004ec    program     extern E:\PIC\TKLLProject.X\interrupt.c
                      main   0x000068    program     extern E:\PIC\TKLLProject.X\main.c
-          scan_key_matrix   0x000646    program     extern E:\PIC\TKLLProject.X\button.c
-             start_timer0   0x0003ba    program     extern E:\PIC\TKLLProject.X\timer.c
-             start_timer1   0x0003e8    program     extern E:\PIC\TKLLProject.X\timer.c
-              stop_timer0   0x0003b6    program     extern E:\PIC\TKLLProject.X\timer.c
-              stop_timer1   0x0003ee    program     extern E:\PIC\TKLLProject.X\timer.c
-                     test   0x0007e6    program     static                          
-               timer0_isr   0x0003f2    program     extern E:\PIC\TKLLProject.X\timer.c
-               timer1_isr   0x00040e    program     extern E:\PIC\TKLLProject.X\timer.c
-               zero_block   0x0009a2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
+          scan_key_matrix   0x000618    program     extern E:\PIC\TKLLProject.X\button.c
+             start_timer0   0x00038c    program     extern E:\PIC\TKLLProject.X\timer.c
+             start_timer1   0x0003ba    program     extern E:\PIC\TKLLProject.X\timer.c
+              stop_timer0   0x000388    program     extern E:\PIC\TKLLProject.X\timer.c
+              stop_timer1   0x0003c0    program     extern E:\PIC\TKLLProject.X\timer.c
+                     test   0x0007b8    program     static                          
+               timer0_isr   0x0003c4    program     extern E:\PIC\TKLLProject.X\timer.c
+               timer1_isr   0x0003e0    program     extern E:\PIC\TKLLProject.X\timer.c
+               zero_block   0x000974    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
                    ADCON0   0x000fc2       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
                ADCON0bits   0x000fc2       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
                    ADCON1   0x000fc1       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
@@ -446,92 +447,93 @@ Linker Map File - Created Thu Nov 03 10:33:16 2022
        InterruptVectorLow   0x000018    program     extern E:\PIC\TKLLProject.X\interrupt.c
        ___return_lbl00001   0x00001c    program     static                          
                      main   0x000068    program     extern E:\PIC\TKLLProject.X\main.c
-               InitSystem   0x0000be    program     extern E:\PIC\TKLLProject.X\main.c
-                 Delay_ms   0x000102    program     extern E:\PIC\TKLLProject.X\main.c
-           AddFloorBuffer   0x000172    program     extern E:\PIC\TKLLProject.X\main.c
-  RemoveCurrenFloorBuffer   0x0001de    program     extern E:\PIC\TKLLProject.X\main.c
-        IsUpFloorDemanded   0x000208    program     extern E:\PIC\TKLLProject.X\main.c
-      IsDownFloorDemanded   0x000248    program     extern E:\PIC\TKLLProject.X\main.c
-        ElevatorOperating   0x00028a    program     extern E:\PIC\TKLLProject.X\main.c
-        fsm_elevatorState   0x0002c2    program     extern E:\PIC\TKLLProject.X\main.c
-     DisplayFloorDemanded   0x000310    program     extern E:\PIC\TKLLProject.X\main.c
-             DisplayState   0x000330    program     extern E:\PIC\TKLLProject.X\main.c
-                   __pa_0   0x000378    program     static E:\PIC\TKLLProject.X\main.c
-                   __pa_1   0x000382    program     static E:\PIC\TKLLProject.X\main.c
-                   __pa_2   0x00038c    program     static E:\PIC\TKLLProject.X\main.c
-              init_timer0   0x000394    program     extern E:\PIC\TKLLProject.X\timer.c
-              stop_timer0   0x0003b6    program     extern E:\PIC\TKLLProject.X\timer.c
-             start_timer0   0x0003ba    program     extern E:\PIC\TKLLProject.X\timer.c
-              init_timer1   0x0003c0    program     extern E:\PIC\TKLLProject.X\timer.c
-             start_timer1   0x0003e8    program     extern E:\PIC\TKLLProject.X\timer.c
-              stop_timer1   0x0003ee    program     extern E:\PIC\TKLLProject.X\timer.c
-               timer0_isr   0x0003f2    program     extern E:\PIC\TKLLProject.X\timer.c
-               timer1_isr   0x00040e    program     extern E:\PIC\TKLLProject.X\timer.c
-             SetTimer0_ms   0x00042a    program     extern E:\PIC\TKLLProject.X\timer.c
-             SetTimer1_ms   0x000442    program     extern E:\PIC\TKLLProject.X\timer.c
-                   __pa_0   0x000474    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_1   0x0004a0    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_2   0x0004a8    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_3   0x0004ba    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_4   0x0004cc    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_5   0x0004d6    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_6   0x0004de    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_7   0x0004ea    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_8   0x0004f6    program     static E:\PIC\TKLLProject.X\timer.c
-                   __pa_9   0x000504    program     static E:\PIC\TKLLProject.X\timer.c
-           init_interrupt   0x000512    program     extern E:\PIC\TKLLProject.X\interrupt.c
-                  low_isr   0x00051a    program     extern E:\PIC\TKLLProject.X\interrupt.c
-                 high_isr   0x000580    program     extern E:\PIC\TKLLProject.X\interrupt.c
-                   __pa_0   0x0005d2    program     static E:\PIC\TKLLProject.X\interrupt.c
-                   __pa_1   0x0005fc    program     static E:\PIC\TKLLProject.X\interrupt.c
-                   __pa_2   0x000622    program     static E:\PIC\TKLLProject.X\interrupt.c
-                   __pa_3   0x000630    program     static E:\PIC\TKLLProject.X\interrupt.c
-          init_key_matrix   0x00063e    program     extern E:\PIC\TKLLProject.X\button.c
-          scan_key_matrix   0x000646    program     extern E:\PIC\TKLLProject.X\button.c
-                   __pa_0   0x0006f8    program     static E:\PIC\TKLLProject.X\button.c
-                 FXD1616S   0x000726    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  DA1616S   0x000738    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                   D1616S   0x000748    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 D1616SOK   0x000752    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                D1616SNEG   0x000756    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  D1616SX   0x000768    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 FXD2424S   0x000772    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                  DA2424S   0x000788    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                   D2424S   0x00079c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                 D2424SOK   0x0007a6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                D2424SNEG   0x0007aa    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                  D2424SX   0x0007c2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
-                _do_cinit   0x0007cc    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     test   0x0007e6    program     static                          
-                copy_loop   0x00083e    program     static                          
-            copy_one_byte   0x000844    program     static                          
-             done_copying   0x000852    program     static                          
-       ___return_lbl00002   0x000868    program     static                          
-                     done   0x000868    program     static                          
-                  InitLed   0x00086a    program     extern E:\PIC\TKLLProject.X\led.c
-               OpenOutput   0x000870    program     extern E:\PIC\TKLLProject.X\led.c
-              CloseOutput   0x000892    program     extern E:\PIC\TKLLProject.X\led.c
-                   __pa_0   0x0008b4    program     static E:\PIC\TKLLProject.X\led.c
-                   __pa_1   0x0008ca    program     static E:\PIC\TKLLProject.X\led.c
-                   __pa_2   0x0008de    program     static E:\PIC\TKLLProject.X\led.c
-              InitLed7Seg   0x0008ee    program     extern E:\PIC\TKLLProject.X\led7seg.c
-                  Display   0x0008f4    program     extern E:\PIC\TKLLProject.X\led7seg.c
-                 FXD2424U   0x00092e    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424u.c
-                     loop   0x00093a    program     static                          
-                   _false   0x000962    program     static                          
-       ___return_lbl00000   0x000966    program     static                          
-                 FXD1616U   0x000968    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
-                     loop   0x000972    program     static                          
-                  endloop   0x00098e    program     static                          
-       ___return_lbl00000   0x000992    program     static                          
-            __zero_memory   0x000994    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
-                   loop_h   0x0009a2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
-               zero_block   0x0009a2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
-                compare_l   0x0009aa    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
-                   loop_l   0x0009ac    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
-                 _startup   0x0009b4    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     loop   0x0009c4    program     static                          
-       ___return_lbl00001   0x0009ce    program     static                          
+               InitSystem   0x000084    program     extern E:\PIC\TKLLProject.X\main.c
+                 Delay_ms   0x0000cc    program     extern E:\PIC\TKLLProject.X\main.c
+           AddFloorBuffer   0x00013c    program     extern E:\PIC\TKLLProject.X\main.c
+  RemoveCurrenFloorBuffer   0x0001a8    program     extern E:\PIC\TKLLProject.X\main.c
+        IsUpFloorDemanded   0x0001d2    program     extern E:\PIC\TKLLProject.X\main.c
+      IsDownFloorDemanded   0x000212    program     extern E:\PIC\TKLLProject.X\main.c
+        ElevatorOperating   0x000254    program     extern E:\PIC\TKLLProject.X\main.c
+        fsm_elevatorState   0x00028c    program     extern E:\PIC\TKLLProject.X\main.c
+     DisplayFloorDemanded   0x0002da    program     extern E:\PIC\TKLLProject.X\main.c
+             DisplayState   0x0002fa    program     extern E:\PIC\TKLLProject.X\main.c
+                   __pa_0   0x00033c    program     static E:\PIC\TKLLProject.X\main.c
+                   __pa_1   0x00034a    program     static E:\PIC\TKLLProject.X\main.c
+                   __pa_2   0x000354    program     static E:\PIC\TKLLProject.X\main.c
+                   __pa_3   0x00035c    program     static E:\PIC\TKLLProject.X\main.c
+              init_timer0   0x000366    program     extern E:\PIC\TKLLProject.X\timer.c
+              stop_timer0   0x000388    program     extern E:\PIC\TKLLProject.X\timer.c
+             start_timer0   0x00038c    program     extern E:\PIC\TKLLProject.X\timer.c
+              init_timer1   0x000392    program     extern E:\PIC\TKLLProject.X\timer.c
+             start_timer1   0x0003ba    program     extern E:\PIC\TKLLProject.X\timer.c
+              stop_timer1   0x0003c0    program     extern E:\PIC\TKLLProject.X\timer.c
+               timer0_isr   0x0003c4    program     extern E:\PIC\TKLLProject.X\timer.c
+               timer1_isr   0x0003e0    program     extern E:\PIC\TKLLProject.X\timer.c
+             SetTimer0_ms   0x0003fc    program     extern E:\PIC\TKLLProject.X\timer.c
+             SetTimer1_ms   0x000414    program     extern E:\PIC\TKLLProject.X\timer.c
+                   __pa_0   0x000446    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_1   0x000472    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_2   0x00047a    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_3   0x00048c    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_4   0x00049e    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_5   0x0004a8    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_6   0x0004b0    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_7   0x0004bc    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_8   0x0004c8    program     static E:\PIC\TKLLProject.X\timer.c
+                   __pa_9   0x0004d6    program     static E:\PIC\TKLLProject.X\timer.c
+           init_interrupt   0x0004e4    program     extern E:\PIC\TKLLProject.X\interrupt.c
+                  low_isr   0x0004ec    program     extern E:\PIC\TKLLProject.X\interrupt.c
+                 high_isr   0x000552    program     extern E:\PIC\TKLLProject.X\interrupt.c
+                   __pa_0   0x0005a4    program     static E:\PIC\TKLLProject.X\interrupt.c
+                   __pa_1   0x0005ce    program     static E:\PIC\TKLLProject.X\interrupt.c
+                   __pa_2   0x0005f4    program     static E:\PIC\TKLLProject.X\interrupt.c
+                   __pa_3   0x000602    program     static E:\PIC\TKLLProject.X\interrupt.c
+          init_key_matrix   0x000610    program     extern E:\PIC\TKLLProject.X\button.c
+          scan_key_matrix   0x000618    program     extern E:\PIC\TKLLProject.X\button.c
+                   __pa_0   0x0006ca    program     static E:\PIC\TKLLProject.X\button.c
+                 FXD1616S   0x0006f8    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  DA1616S   0x00070a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                   D1616S   0x00071a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 D1616SOK   0x000724    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                D1616SNEG   0x000728    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  D1616SX   0x00073a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 FXD2424S   0x000744    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                  DA2424S   0x00075a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                   D2424S   0x00076e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                 D2424SOK   0x000778    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                D2424SNEG   0x00077c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                  D2424SX   0x000794    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
+                _do_cinit   0x00079e    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     test   0x0007b8    program     static                          
+                copy_loop   0x000810    program     static                          
+            copy_one_byte   0x000816    program     static                          
+             done_copying   0x000824    program     static                          
+       ___return_lbl00002   0x00083a    program     static                          
+                     done   0x00083a    program     static                          
+                  InitLed   0x00083c    program     extern E:\PIC\TKLLProject.X\led.c
+               OpenOutput   0x000842    program     extern E:\PIC\TKLLProject.X\led.c
+              CloseOutput   0x000864    program     extern E:\PIC\TKLLProject.X\led.c
+                   __pa_0   0x000886    program     static E:\PIC\TKLLProject.X\led.c
+                   __pa_1   0x00089c    program     static E:\PIC\TKLLProject.X\led.c
+                   __pa_2   0x0008b0    program     static E:\PIC\TKLLProject.X\led.c
+              InitLed7Seg   0x0008c0    program     extern E:\PIC\TKLLProject.X\led7seg.c
+                  Display   0x0008c6    program     extern E:\PIC\TKLLProject.X\led7seg.c
+                 FXD2424U   0x000900    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424u.c
+                     loop   0x00090c    program     static                          
+                   _false   0x000934    program     static                          
+       ___return_lbl00000   0x000938    program     static                          
+                 FXD1616U   0x00093a    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
+                     loop   0x000944    program     static                          
+                  endloop   0x000960    program     static                          
+       ___return_lbl00000   0x000964    program     static                          
+            __zero_memory   0x000966    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
+               zero_block   0x000974    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
+                   loop_h   0x000974    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
+                compare_l   0x00097c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
+                   loop_l   0x00097e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4620.asm
+                 _startup   0x000986    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     loop   0x000996    program     static                          
+       ___return_lbl00001   0x0009a0    program     static                          
                __config_0   0x300001    program     static E:\PIC\TKLLProject.X\main.c
                __config_1   0x300002    program     static E:\PIC\TKLLProject.X\main.c
                __config_2   0x300003    program     static E:\PIC\TKLLProject.X\main.c
