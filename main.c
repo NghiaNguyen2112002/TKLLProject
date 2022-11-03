@@ -9,7 +9,7 @@
 #include "main.h"
 
 
-enum elevator {DOWN, IDLE, UP};
+enum elevator {UP = 1, DOWN = 2, IDLE = 3};
 enum elevator state;
 
 char floorX;
@@ -35,16 +35,22 @@ void fsm_elevatorState(void);
 
 void main(void) {
     InitSystem();
-        state = IDLE;
+//      DisplayState();   
 
     while(1){
-            state = IDLE;
 
-        scan_key_matrix();
+//        scan_key_matrix();
 //        AddFloorBuffer();
 //        RemoveCurrenFloorBuffer();
-             
-        DisplayState();           
+        state = UP;    
+        DisplayState(); 
+        Delay_ms(400);
+        state = DOWN;    
+        DisplayState(); 
+        Delay_ms(400);
+        state = IDLE;    
+        DisplayState(); 
+        Delay_ms(400);
 //        Display(floorX);
 //        fsm_elevatorState();
 
@@ -59,27 +65,29 @@ void main(void) {
 //            else SetTimer0_ms(500);
 //             
 //        }
-        Delay_ms(50);
+//        Delay_ms(50);
     }
     return;
 }
 
 void InitSystem(void){
     floorX = 0;
-    state = IDLE;
+    state = DOWN;
     
     TRISA =  0x00;
     PORTA = 0x00;
+   
     InitLed();
-    InitLed7Seg();
-    init_key_matrix();
-    init_interrupt();
     
-    init_timer0(4695);      //1ms
+//    InitLed7Seg();
+//    init_key_matrix();
+//    init_interrupt();
+    
+//    init_timer0(4695);      //1ms
 //    //init_timer1(9390);      //dinh thoi 2ms
 //    
-    Display(floorX);
-    SetTimer0_ms(500);      //0.5s
+//    Display(floorX);
+//    SetTimer0_ms(500);      //0.5s
 }
 
 
@@ -165,7 +173,7 @@ void fsm_elevatorState(void){
 void DisplayFloorDemanded(char floor){
     OpenOutput(floor);
 }
-void DisplayState(void){
+void DisplayState(void){  
     if(floorX == UP){
         PORTA = 0x0F;
         OpenOutput(6);
