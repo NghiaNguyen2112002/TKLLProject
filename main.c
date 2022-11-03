@@ -38,11 +38,11 @@ void main(void) {
 //      DisplayState();   
 
     while(1){
-
         scan_key_matrix();
         AddFloorBuffer();
         RemoveCurrenFloorBuffer();
 
+        DisplayState();
         Display(floorX);
         fsm_elevatorState();
 
@@ -64,7 +64,7 @@ void main(void) {
 
 void InitSystem(void){
     floorX = 0;
-    state = DOWN;
+    state = IDLE;
     InitLed();
   
  
@@ -164,16 +164,16 @@ void DisplayFloorDemanded(char floor){
     OpenOutput(floor);
 }
 void DisplayState(void){  
-    if(floorX == UP){
+    if(state == UP){
         OpenOutput(6);
         CloseOutput(7);
     }
-    else if(floorX == DOWN){
+    else if(state == DOWN){
         OpenOutput(7);
         CloseOutput(6);
     }
-//    else{
-//        OpenOutput(6);
-//        OpenOutput(7);
-//    }
+    else{
+        OpenOutput(6);
+        OpenOutput(7);
+    }
 }
