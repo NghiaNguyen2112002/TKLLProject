@@ -3,6 +3,8 @@
 
 #include <p18f4620.h>
 
+#include "button.h"
+
 void init_timer0(unsigned int count);
 void start_timer0(void);
 void stop_timer0(void);

@@ -31,20 +31,26 @@ void ElevatorOperating(void);
 
 void fsm_elevatorState(void);
 
-
-
 void main(void) {
+    unsigned char  x;
     InitSystem();
-    
+
+    for(x = 0; x < 10; x++){
+        Delay_ms(50);
+        Display(x);
+    }
+
+   floorX = 0;
     while(1){
-        scan_key_matrix();
         AddFloorBuffer();
         RemoveCurrenFloorBuffer();
 
         DisplayState();
         Display(floorX);
         fsm_elevatorState();
-
+      
+        
+        
         if(flag_timer0){
             flag_timer0 = 0;
 
@@ -54,7 +60,7 @@ void main(void) {
                 PORTAbits.RA0 = 1;
                 Delay_ms(100);
                 PORTAbits.RA0 = 0;
-                SetTimer0_ms(2000);
+                SetTimer0_ms(4000);
             }
             else {
                 SetTimer0_ms(500);
@@ -65,6 +71,11 @@ void main(void) {
 }
 
 void InitSystem(void){
+    //internal OSC 4MHz
+    OSCCONbits.IRCF0 = 0;
+    OSCCONbits.IRCF1 = 1;
+    OSCCONbits.IRCF2 = 1;       
+    
     floorX = 0;
     state = IDLE;
     
@@ -74,21 +85,24 @@ void InitSystem(void){
     
     InitLed();
     InitLed7Seg();
-    init_key_matrix();
+//
+    InitButtonReading();
     init_interrupt();
     
-    init_timer0(4695);      //1ms
-//    //init_timer1(9390);      //dinh thoi 2ms
+    init_timer0(10000);      //10ms
+//    init_timer1(4695);      //dinh thoi 1ms
 //    
+    
     Display(floorX);
     DisplayState(); 
-    SetTimer0_ms(500);      //0.5s
+    SetTimer0_ms(1000);      //1000ms
+    SetTimer1_ms(10);
 }
 
 
 void Delay_ms(unsigned int value)
 {
-	int i,j;
+	unsigned int i,j;
 	for(i = 0; i < value; i++)
 		for(j = 0; j < 160; j++);
 }
@@ -96,7 +110,7 @@ void Delay_ms(unsigned int value)
 void AddFloorBuffer(void){
     int i;
     for(i = 0; i < MAX_FLOOR; i++){
-        if(key_code[i]){
+        if(is_button_pressed(i)){
             DisplayFloorDemanded(i);
             floor_buffer[i] = 1;
         }

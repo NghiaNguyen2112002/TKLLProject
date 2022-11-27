@@ -47,9 +47,9 @@ void init_timer1(unsigned int count)
 	IPR1bits.TMR1IP = 0;			// timer1 interrupt low priority 	
 	//T1CON
 	T1CONbits.RD16 = 1;			// select timer1 16 bits mode
-	T1CONbits.T1RUN = 1;			// 
-	T1CONbits.T1CKPS0 = 1;			//
-	T1CONbits.T1CKPS1 = 1;			// prescaler 1:1
+	T1CONbits.T1RUN = 0;			// 
+    T1CONbits.T1CKPS0 = 0;
+    T1CONbits.T1CKPS1 = 0;
 	T1CONbits.T1OSCEN = 0;  		// oscillator invert and feedback for external oscillator
 //	T1CONbits.T1SYNC = 0;			// this bit ignore when TMR1CS = 0
 	T1CONbits.TMR1CS = 0;			// select internal clock source
@@ -77,7 +77,10 @@ void timer0_isr(void)
 		timer0_cnt = 0;
 		flag_timer0 = 1;
                 // Noi goi nhung ham doi hoi toc do nhanh va uu tien cao
+        
 	}
+        button_reading();
+
 }
 
 void timer1_isr(void)
@@ -94,14 +97,14 @@ void timer1_isr(void)
 
 void SetTimer0_ms(int time)
 {
-	time0_MUL = time;
+	time0_MUL = time/10;
 	timer0_cnt = 0;
 	flag_timer0 = 0;
 }
 
 void SetTimer1_ms(int time)
 {
-	time1_MUL = time/2;
+	time1_MUL = time;
 	timer1_cnt = 0;
 	flag_timer1 = 0;
 }

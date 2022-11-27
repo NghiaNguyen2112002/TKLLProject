@@ -2,26 +2,27 @@
 #define _MAIN_H_
 
 #include <p18f4620.h>
+
 #include "button.h"
-#include "timer.h"
 #include "interrupt.h"
+#include "timer.h"
 #include "led7seg.h"
 #include "led.h"
 
-#define MAX_FLOOR       6
+#define MAX_FLOOR               6
 
-#pragma config OSC		= HS
+#pragma config OSC		= INTIO67
 #pragma config FCMEN	= OFF
 #pragma config IESO		= OFF
 #pragma config PWRT		= OFF
-#pragma config BOREN	= ON
+#pragma config BOREN	= OFF
 #pragma config BORV		= 0
 #pragma config WDT		= OFF
-#pragma config MCLRE	= ON
+#pragma config MCLRE	= OFF
 #pragma config LPT1OSC	= OFF
 #pragma config PBADEN	= OFF
 #pragma config CCP2MX	= PORTC
-#pragma config STVREN	= ON
+#pragma config STVREN	= OFF
 #pragma config LVP		= OFF
 #pragma config XINST	= OFF
 #pragma config DEBUG	= OFF
