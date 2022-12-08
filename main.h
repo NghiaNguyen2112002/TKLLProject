@@ -8,7 +8,8 @@
 #include "timer.h"
 #include "led7seg.h"
 #include "led.h"
-
+#include "uart.h"
+#include "rfid.h"
 #define MAX_FLOOR               6
 
 #pragma config OSC		= INTIO67

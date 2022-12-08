@@ -1,12 +1,10 @@
 #include "interrupt.h"
 
-
-
 void init_interrupt(void)
 {
 	INTCONbits.GIE = 1;  //enable global interrupt
 	RCONbits.IPEN = 1;   //enable interrupt priority
-//	INTCONbits.PEIE = 1; //Peripheral External Interupt Enable
+	INTCONbits.PEIE = 1; //Peripheral External Interupt Enable
 }
 
 
@@ -45,6 +43,10 @@ void low_isr(void)
 		start_timer1();	
 		timer1_isr();
 	}
+    if(PIR1bits.RCIF){  //uart receive isr
+        PIR1bits.RCIF = 0;
+        uart_isr(); 
+    }
 }
 
 #pragma code
@@ -66,5 +68,10 @@ void high_isr(void)
 		start_timer1();	
 		timer1_isr();
 	}
+    
+    if(PIR1bits.RCIF){
+        PIR1bits.RCIF = 0;        
+        uart_isr();
+    }
 }
 

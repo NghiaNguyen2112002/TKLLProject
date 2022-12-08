@@ -19,11 +19,11 @@ char floor_buffer[6] = {0, 0, 0, 0, 0, 0};
 void InitSystem(void);
 void Delay_ms(unsigned int value);
 
+
 void AddFloorBuffer(void);
 void RemoveCurrenFloorBuffer(void);
 char IsUpFloorDemanded(void);
 char IsDownFloorDemanded(void);
-
 void DisplayFloorDemanded(char floor);
 void DisplayState(void);
 
@@ -40,7 +40,7 @@ void main(void) {
         Display(x);
     }
 
-   floorX = 0;
+    floorX = 0;
     while(1){
         AddFloorBuffer();
         RemoveCurrenFloorBuffer();
@@ -88,7 +88,9 @@ void InitSystem(void){
 //
     InitButtonReading();
     init_interrupt();
-    
+    init_uart(); 
+    init_rfid();
+   
     init_timer0(10000);      //10ms
 //    init_timer1(4695);      //dinh thoi 1ms
 //    
@@ -96,7 +98,7 @@ void InitSystem(void){
     Display(floorX);
     DisplayState(); 
     SetTimer0_ms(1000);      //1000ms
-    SetTimer1_ms(10);
+//    SetTimer1_ms(10);
 }
 
 
@@ -109,11 +111,21 @@ void Delay_ms(unsigned int value)
 
 void AddFloorBuffer(void){
     int i;
+//  floor  added from button
     for(i = 0; i < MAX_FLOOR; i++){
         if(is_button_pressed(i)){
             DisplayFloorDemanded(i);
             floor_buffer[i] = 1;
         }
+    }
+
+    if(IS_THIS_RFID_VERIFIED != -1) {
+                    
+        uart_putchar('a');
+        uart_putchar(IS_THIS_RFID_VERIFIED + '0');
+        DisplayFloorDemanded(i);
+        floor_buffer[i] = 1;
+        IS_THIS_RFID_VERIFIED = -1;     //turn off flag
     }
 }
 

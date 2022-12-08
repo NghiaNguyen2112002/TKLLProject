@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c button.c timer.c interrupt.c led7seg.c led.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c button.c timer.c interrupt.c led7seg.c led.c uart.c rfid.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/button.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/interrupt.o ${OBJECTDIR}/led7seg.o ${OBJECTDIR}/led.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/button.o.d ${OBJECTDIR}/timer.o.d ${OBJECTDIR}/interrupt.o.d ${OBJECTDIR}/led7seg.o.d ${OBJECTDIR}/led.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/button.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/interrupt.o ${OBJECTDIR}/led7seg.o ${OBJECTDIR}/led.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/rfid.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/button.o.d ${OBJECTDIR}/timer.o.d ${OBJECTDIR}/interrupt.o.d ${OBJECTDIR}/led7seg.o.d ${OBJECTDIR}/led.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/rfid.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/button.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/interrupt.o ${OBJECTDIR}/led7seg.o ${OBJECTDIR}/led.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/button.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/interrupt.o ${OBJECTDIR}/led7seg.o ${OBJECTDIR}/led.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/rfid.o
 
 # Source Files
-SOURCEFILES=main.c button.c timer.c interrupt.c led7seg.c led.c
+SOURCEFILES=main.c button.c timer.c interrupt.c led7seg.c led.c uart.c rfid.c
 
 
 
@@ -150,6 +150,22 @@ ${OBJECTDIR}/led.o: led.c  nbproject/Makefile-${CND_CONF}.mk
 	@${DEP_GEN} -d ${OBJECTDIR}/led.o 
 	@${FIXDEPS} "${OBJECTDIR}/led.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
+${OBJECTDIR}/uart.o: uart.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/uart.o.d 
+	@${RM} ${OBJECTDIR}/uart.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG  -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/uart.o   uart.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/uart.o 
+	@${FIXDEPS} "${OBJECTDIR}/uart.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/rfid.o: rfid.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rfid.o.d 
+	@${RM} ${OBJECTDIR}/rfid.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG  -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/rfid.o   rfid.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/rfid.o 
+	@${FIXDEPS} "${OBJECTDIR}/rfid.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -198,6 +214,22 @@ ${OBJECTDIR}/led.o: led.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/led.o   led.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/led.o 
 	@${FIXDEPS} "${OBJECTDIR}/led.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/uart.o: uart.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/uart.o.d 
+	@${RM} ${OBJECTDIR}/uart.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/uart.o   uart.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/uart.o 
+	@${FIXDEPS} "${OBJECTDIR}/uart.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/rfid.o: rfid.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rfid.o.d 
+	@${RM} ${OBJECTDIR}/rfid.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/rfid.o   rfid.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/rfid.o 
+	@${FIXDEPS} "${OBJECTDIR}/rfid.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 endif
 

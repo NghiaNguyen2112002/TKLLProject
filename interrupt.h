@@ -3,6 +3,7 @@
 
 #include <p18f4620.h>
 #include "timer.h"
+#include "uart.h"
 
 void init_interrupt(void);
 
