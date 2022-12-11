@@ -3,7 +3,7 @@
 //RB:   7 6 5 4    3 2 1 0
 //led:  0 g f e    d c b a
 //LED ANODE
-unsigned char LEDDisplay[11] = {0x40, 0x79, 0x24, 0x30, 
+unsigned char LEDDisplay[10] = {0x40, 0x79, 0x24, 0x30, 
                                 0x19, 0x12, 0x02, 0x78, 
                                 0x00, 0x10};
 void InitLed7Seg(void){

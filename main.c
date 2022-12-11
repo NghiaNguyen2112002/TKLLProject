@@ -39,6 +39,7 @@ void main(void) {
         Delay_ms(50);
         Display(x);
     }
+    Delay_ms(50);
 
     floorX = 0;
     while(1){
@@ -57,9 +58,9 @@ void main(void) {
             ElevatorOperating();
 
             if(floor_buffer[floorX]) {
-                PORTAbits.RA0 = 1;
-                Delay_ms(100);
                 PORTAbits.RA0 = 0;
+                Delay_ms(100);
+                PORTAbits.RA0 = 1;
                 SetTimer0_ms(4000);
             }
             else {
@@ -76,12 +77,13 @@ void InitSystem(void){
     OSCCONbits.IRCF1 = 1;
     OSCCONbits.IRCF2 = 1;       
     
+//    RCONbits.NOT_POR = 1;
     floorX = 0;
     state = IDLE;
     
     //BUZZER
     TRISAbits.RA0 = 0;
-    PORTAbits.RA0 = 0;
+    PORTAbits.RA0 = 1;          //low level trigger => 1 == OFF
     
     InitLed();
     InitLed7Seg();
@@ -120,12 +122,13 @@ void AddFloorBuffer(void){
     }
 
     if(IS_THIS_RFID_VERIFIED != -1) {
-                    
+
         uart_putchar('a');
         uart_putchar(IS_THIS_RFID_VERIFIED + '0');
-        DisplayFloorDemanded(i);
-        floor_buffer[i] = 1;
+        DisplayFloorDemanded(IS_THIS_RFID_VERIFIED);
+        floor_buffer[IS_THIS_RFID_VERIFIED] = 1;
         IS_THIS_RFID_VERIFIED = -1;     //turn off flag
+        
     }
 }
 
@@ -196,12 +199,12 @@ void DisplayFloorDemanded(char floor){
 }
 void DisplayState(void){  
     if(state == UP){
-        OpenOutput(6);
-        CloseOutput(7);
-    }
-    else if(state == DOWN){
         OpenOutput(7);
         CloseOutput(6);
+    }
+    else if(state == DOWN){
+        OpenOutput(6);
+        CloseOutput(7);
     }
     else{
         CloseOutput(6);
