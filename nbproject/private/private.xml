@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/E:/PIC/TKLLProject.X/main.c</file>
-            <file>file:/E:/PIC/TKLLProject.X/led7seg.c</file>
-            <file>file:/E:/PIC/TKLLProject.X/button.c</file>
-            <file>file:/E:/PIC/TKLLProject.X/led.h</file>
-            <file>file:/E:/PIC/TKLLProject.X/interrupt.c</file>
-            <file>file:/E:/PIC/TKLLProject.X/button.h</file>
-            <file>file:/E:/PIC/TKLLProject.X/rfid.c</file>
-            <file>file:/E:/PIC/TKLLProject.X/led.c</file>
-            <file>file:/E:/PIC/TKLLProject.X/main.h</file>
-            <file>file:/E:/PIC/TKLLProject.X/uart.c</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
