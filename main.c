@@ -48,13 +48,13 @@ void main(void) {
 
         DisplayState();
         Display(floorX);
-        fsm_elevatorState();
       
         
         
         if(flag_timer0){
             flag_timer0 = 0;
 
+            fsm_elevatorState();
             ElevatorOperating();
 
             if(floor_buffer[floorX]) {
