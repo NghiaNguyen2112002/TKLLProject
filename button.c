@@ -50,9 +50,11 @@ unsigned char is_button_held(unsigned char index){
 }
 
 unsigned char is_button_pressed(unsigned char index){
+    unsigned char result = flagForButtonPress[index];
     if(index >= NO_OF_BUTTONS) return 0;
     
-    return flagForButtonPress[index]; 
+    flagForButtonPress[index] = 0;
+    return result; 
 }
 unsigned char is_button_pressed_s(unsigned char index){
     if(index >= NO_OF_BUTTONS) return 0xFF;

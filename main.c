@@ -8,8 +8,11 @@
 
 #include "main.h"
 
+#define NO_OF_PASS_DIGITS               4
+unsigned char PASSWORD[4] = {0, 1, 2, 3};
 
-
+enum elevatorMode {INIT, NORMAL, ENTER_PASS, SECURE};
+enum elevatorMode eleMode;
 
 enum elevator {UP, DOWN, IDLE};
 enum elevator state;
@@ -17,8 +20,10 @@ enum elevator state;
 char floorX;
 char floor_buffer[6] = {0, 0, 0, 0, 0, 0};
 
+unsigned char isEnterMode;
 unsigned char isSecureMode;
 
+unsigned char temp, index_button;
 void InitSystem(void);
 void Delay_ms(unsigned int value);
 
@@ -26,6 +31,7 @@ void Delay_ms(unsigned int value);
 void AddButtonFloorBuffer(void);
 void AddRFIDBuffer(void);
 void RemoveCurrenFloorBuffer(void);
+void ClearFloorBuffer(void);
 char IsUpFloorDemanded(void);
 char IsDownFloorDemanded(void);
 void DisplayFloorDemanded(char floor);
@@ -34,9 +40,9 @@ void DisplayState(void);
 void ElevatorOperating(void);
 
 void fsm_elevatorState(void);
+void fsm_elevatorMode(void);
 
 void main(void) {
-    unsigned char  temp;
     InitSystem();
 
     for(temp = 0; temp < 10; temp++){
@@ -50,20 +56,17 @@ void main(void) {
     
     floorX = 0;
     while(1){
-        AddButtonFloorBuffer();
-        AddRFIDBuffer();
-        RemoveCurrenFloorBuffer();
 
         DisplayState();
         Display(floorX);
       
-        
+        fsm_elevatorMode();
         
         if(flag_timer0){
             flag_timer0 = 0;
 
             fsm_elevatorState();
-            ElevatorOperating();
+//            ElevatorOperating();
 
             if(floor_buffer[floorX]) {
                 PORTAbits.RA0 = 0;
@@ -88,6 +91,9 @@ void InitSystem(void){
 //    RCONbits.NOT_POR = 1;
     floorX = 0;
     state = IDLE;
+    eleMode = INIT;
+    
+    isEnterMode = 0;
     isSecureMode = 0;
     
     //BUZZER
@@ -122,16 +128,15 @@ void Delay_ms(unsigned int value)
 
 void AddButtonFloorBuffer(void){
     int i;
-    if(isSecureMode == 0){
 //  floor  added from button
-        for(i = 0; i < MAX_FLOOR; i++){
-            if(is_button_pressed(i)){
-                DisplayFloorDemanded(i);
-                floor_buffer[i] = 1;
-            }
+    for(i = 0; i < MAX_FLOOR; i++){
+        if(is_button_pressed(i)){
+            DisplayFloorDemanded(i);
+            floor_buffer[i] = 1;
         }
-
     }
+
+    
 }
 
 void AddRFIDBuffer(void){
@@ -145,18 +150,30 @@ void AddRFIDBuffer(void){
         
     }
     else if(IS_THIS_RFID_VERIFIED == 6){
-        isSecureMode = 0;
+        PORTAbits.RA0 = 0;
+        Delay_ms(100);
+        PORTAbits.RA0 = 1;
+        SetTimer0_ms(4000);        
+        isEnterMode = 1;
         IS_THIS_RFID_VERIFIED = -1;
     }
-    else if(IS_THIS_RFID_VERIFIED == 7){
-        isSecureMode = 1;
-        IS_THIS_RFID_VERIFIED = -1;
-    }
+//    else if(IS_THIS_RFID_VERIFIED == 7){
+//        isSecureMode = 1;
+//        IS_THIS_RFID_VERIFIED = -1;
+//    }
 }
 void RemoveCurrenFloorBuffer(void){
     //elevator at floorX -> buffer at that floor = 0
     floor_buffer[floorX] = 0;
     CloseOutput(floorX);
+}
+
+void ClearFloorBuffer(void){
+    unsigned char i;
+    for(i = 0; i < MAX_FLOOR; i++) {
+        floor_buffer[i] = 0;
+        CloseOutput(i);
+    }
 }
 
 char IsUpFloorDemanded(void){
@@ -192,14 +209,81 @@ void ElevatorOperating(void){
     }
 }
 
+
+void fsm_elevatorMode(void){
+    switch(eleMode){
+        case INIT:
+            ClearFloorBuffer();
+            if(isSecureMode == 0) {
+                eleMode = NORMAL;
+            }
+            else {
+                eleMode = SECURE;
+            }
+            break;
+        case NORMAL:
+            
+            AddButtonFloorBuffer();
+            RemoveCurrenFloorBuffer();
+
+            AddRFIDBuffer();
+            if(isEnterMode){
+                temp = 0;
+                ClearFloorBuffer();
+
+                eleMode = ENTER_PASS;
+            }
+            break;
+        case ENTER_PASS:
+            isEnterMode = 0;
+            
+            for(index_button = 0; index_button < NO_OF_BUTTONS; index_button++){
+                if(is_button_pressed(index_button)){
+                    DisplayFloorDemanded(index_button);
+                    if(index_button == temp) temp++;
+                    else eleMode = INIT;
+                }
+               
+            }
+            if(temp == NO_OF_PASS_DIGITS) {
+                isSecureMode = !isSecureMode;
+                eleMode = INIT;
+            }
+            break;
+        case SECURE:
+            
+            AddRFIDBuffer();
+            RemoveCurrenFloorBuffer();
+
+            if(isEnterMode){
+                temp = 0;
+                ClearFloorBuffer();
+
+                eleMode = ENTER_PASS;
+            }
+            break;
+    }
+}
+
+
 void fsm_elevatorState(void){
     switch(state){
         case UP:
+            floorX++;
+            if(floorX > MAX_FLOOR - 1){
+                floorX = MAX_FLOOR - 1;    
+            }
+            
             if(IsUpFloorDemanded()) state = UP;
             else if(IsDownFloorDemanded()) state = DOWN;
             else state = IDLE;
             break;
         case DOWN:
+            floorX--;
+            if(floorX < 0){
+                floorX = 0;    
+            }
+            
             if(IsDownFloorDemanded()) state = DOWN;
             else if(IsUpFloorDemanded()) state = UP;
             else state = IDLE;
