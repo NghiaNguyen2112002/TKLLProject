@@ -8,10 +8,8 @@
 
 #include "main.h"
 
-const unsigned char Password[4] = {0, 1, 2, 3};
 
-enum elevator_Mode {INIT, NORMAL, ENTER_PASS, SECURE};
-enum elevator_Mode mode;
+
 
 enum elevator {UP, DOWN, IDLE};
 enum elevator state;
@@ -19,12 +17,14 @@ enum elevator state;
 char floorX;
 char floor_buffer[6] = {0, 0, 0, 0, 0, 0};
 
+unsigned char isSecureMode;
 
 void InitSystem(void);
 void Delay_ms(unsigned int value);
 
 
-void AddFloorBuffer(void);
+void AddButtonFloorBuffer(void);
+void AddRFIDBuffer(void);
 void RemoveCurrenFloorBuffer(void);
 char IsUpFloorDemanded(void);
 char IsDownFloorDemanded(void);
@@ -50,7 +50,8 @@ void main(void) {
     
     floorX = 0;
     while(1){
-        AddFloorBuffer();
+        AddButtonFloorBuffer();
+        AddRFIDBuffer();
         RemoveCurrenFloorBuffer();
 
         DisplayState();
@@ -86,8 +87,8 @@ void InitSystem(void){
     
 //    RCONbits.NOT_POR = 1;
     floorX = 0;
-    mode = INIT;
     state = IDLE;
+    isSecureMode = 0;
     
     //BUZZER
     TRISAbits.RA0 = 0;
@@ -119,17 +120,22 @@ void Delay_ms(unsigned int value)
 		for(j = 0; j < 160; j++);
 }
 
-void AddFloorBuffer(void){
+void AddButtonFloorBuffer(void){
     int i;
+    if(isSecureMode == 0){
 //  floor  added from button
-    for(i = 0; i < MAX_FLOOR; i++){
-        if(is_button_pressed(i)){
-            DisplayFloorDemanded(i);
-            floor_buffer[i] = 1;
+        for(i = 0; i < MAX_FLOOR; i++){
+            if(is_button_pressed(i)){
+                DisplayFloorDemanded(i);
+                floor_buffer[i] = 1;
+            }
         }
-    }
 
-    if(IS_THIS_RFID_VERIFIED != -1) {
+    }
+}
+
+void AddRFIDBuffer(void){
+    if(IS_THIS_RFID_VERIFIED != -1 && IS_THIS_RFID_VERIFIED < MAX_FLOOR) {
 
         uart_putchar('a');
         uart_putchar(IS_THIS_RFID_VERIFIED + '0');
@@ -138,8 +144,15 @@ void AddFloorBuffer(void){
         IS_THIS_RFID_VERIFIED = -1;     //turn off flag
         
     }
+    else if(IS_THIS_RFID_VERIFIED == 6){
+        isSecureMode = 0;
+        IS_THIS_RFID_VERIFIED = -1;
+    }
+    else if(IS_THIS_RFID_VERIFIED == 7){
+        isSecureMode = 1;
+        IS_THIS_RFID_VERIFIED = -1;
+    }
 }
-
 void RemoveCurrenFloorBuffer(void){
     //elevator at floorX -> buffer at that floor = 0
     floor_buffer[floorX] = 0;
