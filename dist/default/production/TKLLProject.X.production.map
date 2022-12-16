@@ -1,5 +1,5 @@
 MPLINK 5.00, LINKER
-Linker Map File - Created Sat Dec 17 04:03:21 2022
+Linker Map File - Created Sat Dec 17 04:10:42 2022
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -107,7 +107,7 @@ Linker Map File - Created Sat Dec 17 04:03:21 2022
                 ---------  ---------  ---------  --------- ---------                
      AddButtonFloorBuffer   0x0001dc    program     extern E:\PIC\TKLLProject.X\main.c
             AddRFIDBuffer   0x00024c    program     extern E:\PIC\TKLLProject.X\main.c
-         ClearFloorBuffer   0x000306    program     extern E:\PIC\TKLLProject.X\main.c
+         ClearFloorBuffer   0x0002f6    program     extern E:\PIC\TKLLProject.X\main.c
               CloseOutput   0x000e48    program     extern E:\PIC\TKLLProject.X\led.c
                    D1616S   0x000d6e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
                 D1616SNEG   0x000d7c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
@@ -123,7 +123,7 @@ Linker Map File - Created Sat Dec 17 04:03:21 2022
                   Display   0x000fc6    program     extern E:\PIC\TKLLProject.X\led7seg.c
      DisplayFloorDemanded   0x000530    program     extern E:\PIC\TKLLProject.X\main.c
              DisplayState   0x00055c    program     extern E:\PIC\TKLLProject.X\main.c
-        ElevatorOperating   0x0003e8    program     extern E:\PIC\TKLLProject.X\main.c
+        ElevatorOperating   0x0003d8    program     extern E:\PIC\TKLLProject.X\main.c
                  FXD1616S   0x000d4c    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
                  FXD1616U   0x000ff0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
                  FXD2424S   0x000d98    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd2424s.asm
@@ -134,11 +134,11 @@ Linker Map File - Created Sat Dec 17 04:03:21 2022
                InitSystem   0x000108    program     extern E:\PIC\TKLLProject.X\main.c
       InterruptVectorHigh   0x000008    program     extern E:\PIC\TKLLProject.X\interrupt.c
        InterruptVectorLow   0x000018    program     extern E:\PIC\TKLLProject.X\interrupt.c
-      IsDownFloorDemanded   0x000394    program     extern E:\PIC\TKLLProject.X\main.c
+      IsDownFloorDemanded   0x000384    program     extern E:\PIC\TKLLProject.X\main.c
            IsRFIDVerified   0x000ca4    program     extern E:\PIC\TKLLProject.X\rfid.c
-        IsUpFloorDemanded   0x000342    program     extern E:\PIC\TKLLProject.X\main.c
+        IsUpFloorDemanded   0x000332    program     extern E:\PIC\TKLLProject.X\main.c
                OpenOutput   0x000df8    program     extern E:\PIC\TKLLProject.X\led.c
-  RemoveCurrenFloorBuffer   0x0002d6    program     extern E:\PIC\TKLLProject.X\main.c
+  RemoveCurrenFloorBuffer   0x0002c6    program     extern E:\PIC\TKLLProject.X\main.c
              SetTimer0_ms   0x00086a    program     extern E:\PIC\TKLLProject.X\timer.c
              SetTimer1_ms   0x0008a8    program     extern E:\PIC\TKLLProject.X\timer.c
        ___return_lbl00000   0x00101a    program     static                          
@@ -172,7 +172,7 @@ Linker Map File - Created Sat Dec 17 04:03:21 2022
                      done   0x000f34    program     static                          
              done_copying   0x000f1e    program     static                          
                   endloop   0x001016    program     static                          
-         fsm_elevatorMode   0x000420    program     extern E:\PIC\TKLLProject.X\main.c
+         fsm_elevatorMode   0x000410    program     extern E:\PIC\TKLLProject.X\main.c
         fsm_elevatorState   0x0004be    program     extern E:\PIC\TKLLProject.X\main.c
                  high_isr   0x000bda    program     extern E:\PIC\TKLLProject.X\interrupt.c
            init_interrupt   0x000afe    program     extern E:\PIC\TKLLProject.X\interrupt.c
@@ -468,12 +468,12 @@ Linker Map File - Created Sat Dec 17 04:03:21 2022
                  Delay_ms   0x000166    program     extern E:\PIC\TKLLProject.X\main.c
      AddButtonFloorBuffer   0x0001dc    program     extern E:\PIC\TKLLProject.X\main.c
             AddRFIDBuffer   0x00024c    program     extern E:\PIC\TKLLProject.X\main.c
-  RemoveCurrenFloorBuffer   0x0002d6    program     extern E:\PIC\TKLLProject.X\main.c
-         ClearFloorBuffer   0x000306    program     extern E:\PIC\TKLLProject.X\main.c
-        IsUpFloorDemanded   0x000342    program     extern E:\PIC\TKLLProject.X\main.c
-      IsDownFloorDemanded   0x000394    program     extern E:\PIC\TKLLProject.X\main.c
-        ElevatorOperating   0x0003e8    program     extern E:\PIC\TKLLProject.X\main.c
-         fsm_elevatorMode   0x000420    program     extern E:\PIC\TKLLProject.X\main.c
+  RemoveCurrenFloorBuffer   0x0002c6    program     extern E:\PIC\TKLLProject.X\main.c
+         ClearFloorBuffer   0x0002f6    program     extern E:\PIC\TKLLProject.X\main.c
+        IsUpFloorDemanded   0x000332    program     extern E:\PIC\TKLLProject.X\main.c
+      IsDownFloorDemanded   0x000384    program     extern E:\PIC\TKLLProject.X\main.c
+        ElevatorOperating   0x0003d8    program     extern E:\PIC\TKLLProject.X\main.c
+         fsm_elevatorMode   0x000410    program     extern E:\PIC\TKLLProject.X\main.c
         fsm_elevatorState   0x0004be    program     extern E:\PIC\TKLLProject.X\main.c
      DisplayFloorDemanded   0x000530    program     extern E:\PIC\TKLLProject.X\main.c
              DisplayState   0x00055c    program     extern E:\PIC\TKLLProject.X\main.c

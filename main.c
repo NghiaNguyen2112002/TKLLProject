@@ -153,7 +153,6 @@ void AddRFIDBuffer(void){
         PORTAbits.RA0 = 0;
         Delay_ms(100);
         PORTAbits.RA0 = 1;
-        SetTimer0_ms(4000);        
         isEnterMode = 1;
         IS_THIS_RFID_VERIFIED = -1;
     }
@@ -213,7 +212,11 @@ void ElevatorOperating(void){
 void fsm_elevatorMode(void){
     switch(eleMode){
         case INIT:
+            PORTAbits.RA0 = 0;
+            Delay_ms(100);
+            PORTAbits.RA0 = 1;
             ClearFloorBuffer();
+            
             if(isSecureMode == 0) {
                 eleMode = NORMAL;
             }
