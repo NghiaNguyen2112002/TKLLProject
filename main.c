@@ -8,6 +8,10 @@
 
 #include "main.h"
 
+const unsigned char Password[4] = {0, 1, 2, 3};
+
+enum elevator_Mode {INIT, NORMAL, ENTER_PASS, SECURE};
+enum elevator_Mode mode;
 
 enum elevator {UP, DOWN, IDLE};
 enum elevator state;
@@ -32,15 +36,18 @@ void ElevatorOperating(void);
 void fsm_elevatorState(void);
 
 void main(void) {
-    unsigned char  x;
+    unsigned char  temp;
     InitSystem();
 
-    for(x = 0; x < 10; x++){
+    for(temp = 0; temp < 10; temp++){
         Delay_ms(50);
-        Display(x);
+        Display(temp);
     }
+    PORTAbits.RA0 = 0;
+    Delay_ms(100);
+    PORTAbits.RA0 = 1;
     Delay_ms(50);
-
+    
     floorX = 0;
     while(1){
         AddFloorBuffer();
@@ -79,6 +86,7 @@ void InitSystem(void){
     
 //    RCONbits.NOT_POR = 1;
     floorX = 0;
+    mode = INIT;
     state = IDLE;
     
     //BUZZER

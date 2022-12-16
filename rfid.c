@@ -1,12 +1,15 @@
 #include "rfid.h"
 
 // x3 rfid card with 12 digit
-const unsigned char RFID[5][12] = {
+const unsigned char RFID[8][12] = {
     "870092771371",
     "870092DC7CB5",
     "870092C338EE",
     "870092A76DDF",
-    "8700929CC049"
+    "8700929CC049",
+    "8700929BF27C",
+    "870081021317",
+    "87007F1D7095"
                     };
 
 enum RFID_CARD_DETECT_FSM mode;

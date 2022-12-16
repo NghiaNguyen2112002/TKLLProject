@@ -11,7 +11,7 @@
 #include "uart.h"
 
 #define NO_OF_RFID_DIGITS               12 
-#define NO_OF_CARDS                     5
+#define NO_OF_CARDS                     8
 
 #define START_RFID_HEX                  0x02
 #define END_RFID_HEX                    0x03
