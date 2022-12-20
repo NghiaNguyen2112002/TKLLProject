@@ -37,7 +37,6 @@ char IsDownFloorDemanded(void);
 void DisplayFloorDemanded(char floor);
 void DisplayState(void);
 
-void ElevatorOperating(void);
 
 void fsm_elevatorState(void);
 void fsm_elevatorMode(void);
@@ -188,24 +187,6 @@ char IsDownFloorDemanded(void){
         if(floor_buffer[i]) return 1;
     }
     return 0;
-}
-
-void ElevatorOperating(void){
-    if(state == UP) {
-        floorX++;
-        if(floorX > MAX_FLOOR - 1){
-            floorX = MAX_FLOOR - 1;    
-        }
-    }
-    else if(state == DOWN){
-         floorX--;
-        if(floorX < 0){
-            floorX = 0;    
-        }
-    }
-    else if(state == IDLE){
-        
-    }
 }
 
 
