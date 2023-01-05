@@ -12,8 +12,8 @@
 #define TRIS_7SEG TRISB
 #define PORT_7SEG PORTB
 
-void InitLed7Seg(void);
-void Display(unsigned char number);
+void LED7_Init(void);
+void LED7_Display(unsigned char number);
 
 
 #endif	/* LED7SEG_H */

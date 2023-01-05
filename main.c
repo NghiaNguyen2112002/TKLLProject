@@ -24,7 +24,7 @@ unsigned char isEnterMode;
 unsigned char isSecureMode;
 
 unsigned char temp, index_button;
-void InitSystem(void);
+void SYS_Init(void);
 void Delay_ms(unsigned int value);
 
 
@@ -38,15 +38,15 @@ void DisplayFloorDemanded(char floor);
 void DisplayState(void);
 
 
-void fsm_elevatorState(void);
-void fsm_elevatorMode(void);
+void FSM_ElevatorState(void);
+void FSM_ElevatorMode(void);
 
 void main(void) {
-    InitSystem();
+    SYS_Init();
 
     for(temp = 0; temp < 10; temp++){
         Delay_ms(50);
-        Display(temp);
+        LED7_Display(temp);
     }
     PORTAbits.RA0 = 0;
     Delay_ms(100);
@@ -57,31 +57,31 @@ void main(void) {
     while(1){
 
         DisplayState();
-        Display(floorX);
+        LED7_Display(floorX);
       
-        fsm_elevatorMode();
+        FSM_ElevatorMode();
         
         if(flag_timer0){
             flag_timer0 = 0;
 
-            fsm_elevatorState();
+            FSM_ElevatorState();
 //            ElevatorOperating();
 
             if(floor_buffer[floorX]) {
                 PORTAbits.RA0 = 0;
                 Delay_ms(100);
                 PORTAbits.RA0 = 1;
-                SetTimer0_ms(4000);
+                TMR0_Set_ms(4000);
             }
             else {
-                SetTimer0_ms(500);
+                TMR0_Set_ms(500);
             }
         }
     }
     return;
 }
 
-void InitSystem(void){
+void SYS_Init(void){
     //internal OSC 4MHz
     OSCCONbits.IRCF0 = 0;
     OSCCONbits.IRCF1 = 1;
@@ -99,21 +99,21 @@ void InitSystem(void){
     TRISAbits.RA0 = 0;
     PORTAbits.RA0 = 1;          //low level trigger => 1 == OFF
     
-    InitLed();
-    InitLed7Seg();
+    LED_Init();
+    LED7_Init();
 //
-    InitButtonReading();
-    init_interrupt();
-    init_uart(); 
-    init_rfid();
+    BTN_Init();
+    INT_Init();
+    UART_Init(); 
+    RFID_Init();
    
-    init_timer0(10000);      //10ms
+    TMR0_Init(10000);      //10ms
 //    init_timer1(4695);      //dinh thoi 1ms
 //    
     
-    Display(floorX);
+    LED7_Display(floorX);
     DisplayState(); 
-    SetTimer0_ms(1000);      //1000ms
+    TMR0_Set_ms(1000);      //1000ms
 //    SetTimer1_ms(10);
 }
 
@@ -129,7 +129,7 @@ void AddButtonFloorBuffer(void){
     int i;
 //  floor  added from button
     for(i = 0; i < MAX_FLOOR; i++){
-        if(is_button_pressed(i)){
+        if(BTN_IsPressed(i)){
             DisplayFloorDemanded(i);
             floor_buffer[i] = 1;
         }
@@ -141,8 +141,8 @@ void AddButtonFloorBuffer(void){
 void AddRFIDBuffer(void){
     if(IS_THIS_RFID_VERIFIED != -1 && IS_THIS_RFID_VERIFIED < MAX_FLOOR) {
 
-        uart_putchar('a');
-        uart_putchar(IS_THIS_RFID_VERIFIED + '0');
+        UART_PutChar('a');
+        UART_PutChar(IS_THIS_RFID_VERIFIED + '0');
         DisplayFloorDemanded(IS_THIS_RFID_VERIFIED);
         floor_buffer[IS_THIS_RFID_VERIFIED] = 1;
         IS_THIS_RFID_VERIFIED = -1;     //turn off flag
@@ -163,14 +163,14 @@ void AddRFIDBuffer(void){
 void RemoveCurrenFloorBuffer(void){
     //elevator at floorX -> buffer at that floor = 0
     floor_buffer[floorX] = 0;
-    CloseOutput(floorX);
+    LED_Close(floorX);
 }
 
 void ClearFloorBuffer(void){
     unsigned char i;
     for(i = 0; i < MAX_FLOOR; i++) {
         floor_buffer[i] = 0;
-        CloseOutput(i);
+        LED_Close(i);
     }
 }
 
@@ -190,7 +190,7 @@ char IsDownFloorDemanded(void){
 }
 
 
-void fsm_elevatorMode(void){
+void FSM_ElevatorMode(void){
     switch(eleMode){
         case INIT:
             PORTAbits.RA0 = 0;
@@ -222,7 +222,7 @@ void fsm_elevatorMode(void){
             isEnterMode = 0;
             
             for(index_button = 0; index_button < NO_OF_BUTTONS; index_button++){
-                if(is_button_pressed(index_button)){
+                if(BTN_IsPressed(index_button)){
                     DisplayFloorDemanded(index_button);
                     if(index_button == temp) temp++;
                     else eleMode = INIT;
@@ -250,7 +250,7 @@ void fsm_elevatorMode(void){
 }
 
 
-void fsm_elevatorState(void){
+void FSM_ElevatorState(void){
     switch(state){
         case UP:
             floorX++;
@@ -284,19 +284,19 @@ void fsm_elevatorState(void){
 
 
 void DisplayFloorDemanded(char floor){
-    OpenOutput(floor);
+    LED_Open(floor);
 }
 void DisplayState(void){  
     if(state == UP){
-        OpenOutput(7);
-        CloseOutput(6);
+        LED_Open(7);
+        LED_Close(6);
     }
     else if(state == DOWN){
-        OpenOutput(6);
-        CloseOutput(7);
+        LED_Open(6);
+        LED_Close(7);
     }
     else{
-        CloseOutput(6);
-        CloseOutput(7);
+        LED_Close(6);
+        LED_Close(7);
     }
 }

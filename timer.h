@@ -5,20 +5,21 @@
 
 #include "button.h"
 
-void init_timer0(unsigned int count);
-void start_timer0(void);
-void stop_timer0(void);
-void init_timer1(unsigned int count);
-void start_timer1(void);
-void stop_timer1(void);
+void TMR0_Init(unsigned int count);
+void TMR0_Start(void);
+void TMR0_Stop(void);
+
+void TMR1_Init(unsigned int count);
+void TMR1_Start(void);
+void TMR1_Stop(void);
 
 
-void timer0_isr(void);
-void timer1_isr(void);
+void TMR0_Isr(void);
+void TMR1_Isr(void);
 
 // xay dung ham cap cao cho timer, nhung ham se duoc lop user goi
-void SetTimer0_ms(int time);
-void SetTimer1_ms(int time);
+void TMR0_Set_ms(int time);
+void TMR1_Set_ms(int time);
 
 
 

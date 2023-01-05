@@ -19,13 +19,13 @@ unsigned char counter;
 char IS_THIS_RFID_VERIFIED;
 
 
-void init_rfid(void){
+void RFID_Init(void){
     mode = INIT;
     counter = 0;
     IS_THIS_RFID_VERIFIED = -1;
 }
 
-char IsRFIDVerified(void){
+char RFID_IsVerified(void){
     switch(mode){
         case INIT:
             if(dataReceived == START_RFID_HEX){

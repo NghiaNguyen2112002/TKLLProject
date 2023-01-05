@@ -13,9 +13,9 @@
 #define TRIS_LED    TRISD
 #define PORT_LED    PORTD
 
-void InitLed(void);
-void OpenOutput(int index);
-void CloseOutput(int index);
+void LED_Init(void);
+void LED_Open(int index);
+void LED_Close(int index);
 
 
 #endif	/* LED_H */

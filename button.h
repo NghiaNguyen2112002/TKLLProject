@@ -16,11 +16,11 @@
 #define BUTTON_IS_PRESSED                   0
 #define BUTTON_IS_RELEASED                  1
 
-void InitButtonReading(void);
-void button_reading(void);
+void BTN_Init(void);
+void BTN_Reading(void);
 
-unsigned char is_button_held(unsigned char index);
-unsigned char is_button_pressed(unsigned char index);
-unsigned char is_button_pressed_s(unsigned char index);
+unsigned char BTN_IsHeld(unsigned char index);
+unsigned char BTN_IsPressed(unsigned char index);
+unsigned char BTN_IsPressed_s(unsigned char index);
 
 #endif	/* BUTTON_H */

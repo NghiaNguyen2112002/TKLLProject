@@ -13,12 +13,12 @@ static unsigned char flagForButtonPress[NO_OF_BUTTONS];
 static unsigned char flagForButtonPress_s[NO_OF_BUTTONS];
 static unsigned int counterForButtonPress[NO_OF_BUTTONS];
 
-void InitButtonReading(void){
+void BTN_Init(void){
     TRIS_BUTTON = 0xFF;
     PORT_BUTTON = 0xFF;
 }
 
-void button_reading(void){
+void BTN_Reading(void){
     unsigned char i;
     for(i = 0; i < NO_OF_BUTTONS; i++){
         debounceButtonBuffer2[i] = debounceButtonBuffer1[i];
@@ -43,20 +43,20 @@ void button_reading(void){
 }
 
 
-unsigned char is_button_held(unsigned char index){
+unsigned char BTN_IsHeld(unsigned char index){
     if(index >= NO_OF_BUTTONS) return 0;
     
     return counterForButtonPress[index];
 }
 
-unsigned char is_button_pressed(unsigned char index){
+unsigned char BTN_IsPressed(unsigned char index){
     unsigned char result = flagForButtonPress[index];
     if(index >= NO_OF_BUTTONS) return 0;
     
     flagForButtonPress[index] = 0;
     return result; 
 }
-unsigned char is_button_pressed_s(unsigned char index){
+unsigned char BTN_IsPressed_s(unsigned char index){
     if(index >= NO_OF_BUTTONS) return 0xFF;
     return flagForButtonPress_s[index]; 
     ///reading invoked every 10ms

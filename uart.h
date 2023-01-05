@@ -12,11 +12,11 @@
 #include "rfid.h"
 
 extern unsigned char dataReceived;
-void init_uart(void);
-void uart_isr(void);
-void uart_putchar(unsigned char data);
+void UART_Init(void);
+void UART_Isr(void);
+void UART_PutChar(unsigned char data);
 
-void Clear_UartBuffer(void);
+void UART_ClearBuffer(void);
 
 
 #endif	/* UART_H */

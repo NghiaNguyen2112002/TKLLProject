@@ -3,7 +3,7 @@
 
 unsigned char dataReceived;
 
-void init_uart(void){
+void UART_Init(void){
     SPBRGH = 0;          //Baud Rate Generator Register
 //    sync = 0; BRG16 = 1; SPBRGH = 0;   
 //    Baud Rate = F / [16(SPBRG + 1)]
@@ -25,17 +25,17 @@ void init_uart(void){
 	TRISCbits.RC7 = 1; // RC7 input
 }
 
-void uart_putchar(unsigned char data)
+void UART_PutChar(unsigned char data)
 {
 	while(PIR1bits.TXIF == 0);
         TXREG = data;
 	PIR1bits.TXIF = 0;
 }
 
-void uart_isr(void){
+void UART_Isr(void){
     dataReceived = RCREG;
-    IS_THIS_RFID_VERIFIED = IsRFIDVerified();
+    IS_THIS_RFID_VERIFIED = RFID_IsVerified();
        
-    uart_putchar(dataReceived);
+    UART_PutChar(dataReceived);
 
 }

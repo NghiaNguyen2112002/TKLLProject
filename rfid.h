@@ -19,8 +19,8 @@
 extern char IS_THIS_RFID_VERIFIED;
 
 enum RFID_CARD_DETECT_FSM       {INIT, RECEIVE_DATA, DETECT_DATA};
-void init_rfid(void);
-char IsRFIDVerified(void);
+void RFID_Init(void);
+char RFID_IsVerified(void);
 
 
 #endif	/* RFID_H */

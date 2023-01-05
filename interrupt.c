@@ -1,6 +1,6 @@
 #include "interrupt.h"
 
-void init_interrupt(void)
+void INT_Init(void)
 {
 	INTCONbits.GIE = 1;  //enable global interrupt
 	RCONbits.IPEN = 1;   //enable interrupt priority
@@ -30,22 +30,22 @@ void low_isr(void)
 {
 	if (INTCONbits.T0IF) // timer0
 	{
-		stop_timer0();
+		TMR0_Stop();
 		INTCONbits.T0IF = 0;
-		start_timer0();
-		timer0_isr();
+		TMR0_Start();
+		TMR0_Isr();
 	}
 
 	if (PIR1bits.TMR1IF) // timer1
 	{
-		stop_timer1();
+		TMR1_Stop();
 		PIR1bits.TMR1IF = 0;
-		start_timer1();	
-		timer1_isr();
+		TMR1_Start();	
+		TMR1_Isr();
 	}
     if(PIR1bits.RCIF){  //uart receive isr
         PIR1bits.RCIF = 0;
-        uart_isr(); 
+        UART_Isr(); 
     }
 }
 
@@ -55,23 +55,22 @@ void high_isr(void)
 {
 	if (INTCONbits.T0IF) // timer0
 	{
-		stop_timer0();
+		TMR0_Stop();
 		INTCONbits.T0IF = 0;
-		start_timer0();
-		timer0_isr();
+		TMR0_Start();
+		TMR0_Isr();
 	}
 
 	if (PIR1bits.TMR1IF) // timer1
 	{
-		stop_timer1();
+		TMR1_Stop();
 		PIR1bits.TMR1IF = 0;
-		start_timer1();	
-		timer1_isr();
+		TMR1_Start();	
+		TMR1_Isr();
 	}
-    
-    if(PIR1bits.RCIF){
-        PIR1bits.RCIF = 0;        
-        uart_isr();
+    if(PIR1bits.RCIF){  //uart receive isr
+        PIR1bits.RCIF = 0;
+        UART_Isr(); 
     }
 }
 

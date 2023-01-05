@@ -5,7 +5,7 @@
 #include "timer.h"
 #include "uart.h"
 
-void init_interrupt(void);
+void INT_Init(void);
 
 void low_isr(void);
 void high_isr(void);

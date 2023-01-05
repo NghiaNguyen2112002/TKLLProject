@@ -7,7 +7,7 @@ unsigned int timer0_cnt = 0,timer1_cnt = 0;
 unsigned int time0_MUL = 1,time1_MUL = 1;
 
 //--------------------TIMER0-------------------------
-void init_timer0(unsigned int count)
+void TMR0_Init(unsigned int count)
 {
 	T0CONbits.TMR0ON = 0;			// turn off timer0
 	timer0_value = count;
@@ -22,12 +22,12 @@ void init_timer0(unsigned int count)
 	T0CONbits.TMR0ON = 1;                   // start timer 0
 }
 
-void stop_timer0(void)
+void TMR0_Stop(void)
 {
 	T0CONbits.TMR0ON = 0;	
 }
 
-void start_timer0(void)
+void TMR0_Start(void)
 {
 	
 	TMR0L = (65535 - timer0_value)%256;		// count 50000 times
@@ -36,7 +36,7 @@ void start_timer0(void)
 }
 
 //--------------------TIMER1-------------------------
-void init_timer1(unsigned int count)
+void TMR1_Init(unsigned int count)
 {
 	T1CONbits.TMR1ON = 0;			// turn off timer 1
 	timer1_value = count;
@@ -56,20 +56,20 @@ void init_timer1(unsigned int count)
 	T1CONbits.TMR1ON = 1;			// start timer 1
 }
 
-void start_timer1(void)
+void TMR1_Start(void)
 {
 	TMR1H = ((65535-timer1_value)/256);
 	TMR1L = ((65535-timer1_value)%256);
 	T1CONbits.TMR1ON = 1;
 }
 
-void stop_timer1(void)
+void TMR1_Stop(void)
 {
 	T1CONbits.TMR1ON = 0;
 }
 
 //Cac ham phuc vu interupt timer
-void timer0_isr(void)
+void TMR0_Isr(void)
 {
 	timer0_cnt ++;
 	if (timer0_cnt >= time0_MUL)
@@ -79,11 +79,11 @@ void timer0_isr(void)
                 // Noi goi nhung ham doi hoi toc do nhanh va uu tien cao
         
 	}
-        button_reading();
+        BTN_Reading();
 
 }
 
-void timer1_isr(void)
+void TMR1_Isr(void)
 {
 	timer1_cnt ++;
 	if (timer1_cnt >= time1_MUL)
@@ -95,14 +95,14 @@ void timer1_isr(void)
 }
 
 
-void SetTimer0_ms(int time)
+void TMR0_Set_ms(int time)
 {
 	time0_MUL = time/10;
 	timer0_cnt = 0;
 	flag_timer0 = 0;
 }
 
-void SetTimer1_ms(int time)
+void TMR1_Set_ms(int time)
 {
 	time1_MUL = time;
 	timer1_cnt = 0;
